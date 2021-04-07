@@ -11,21 +11,26 @@
 
 <body>
     <div id="player" style="display: none;"></div>
-    <div class="container" style="background-image: url(../../public/background/8e145599d4847e339828787162952035.gif);">
+    <div class="container">
+
+        <img src="../../public/background/cyberpunk/1.gif">
+
         <main class="main">
+
+            <section class="name">
+                <p id="name-music"></p>
+            </section>
+
             <section class="controls">
                 <img id="previous" src="../../public/img/skipBack.svg" alt="Back" />
                 <img id="pause" src="../../public/img/pause.svg" alt="Pause" style="display: none;" />
                 <img id="play" src="../../public/img/play.svg" alt="Play" />
                 <img id="next" src="../../public/img/skipForward.svg" alt="Forward" />
             </section>
-            <div class="name">
-                <p id="name-music"></p>
-            </div>
 
             <section class="progress">
                 <div id="progress"></div>
-            </section>  
+            </section>
 
         </main>
 
@@ -35,5 +40,6 @@
 
     </div>
 </body>
-    <script type="text/javascript" src="../js/play.js"></script>
+<script type="text/javascript" src="../js/play.js"></script>
+
 </html>

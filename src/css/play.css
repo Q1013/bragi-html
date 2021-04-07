@@ -1,4 +1,6 @@
 .container {
+    background-size: 100%;
+    background-repeat: no-repeat;
     min-height: 100vh;
     padding: 0 0.5rem;
     display: flex;

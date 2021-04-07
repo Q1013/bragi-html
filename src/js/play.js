@@ -6,7 +6,7 @@ var nameVideo = undefined,
     percent,
     progress = document.getElementById('progress')
 
-window.onload = function() {
+window.onload = function () {
     currentTime = player.getCurrentTime(), duration = player.getDuration()
     setInterval(updateName, 1000)
     setInterval(updateTime, 500)
@@ -19,21 +19,25 @@ var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var player
-
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: '390',
         width: '640',
-        playerVars: {
+        playerVars:
+        {
             listType: 'playlist',
             list: 'PLYX-9Ms9JaMUUAbmxRTBBqcEPnztAzRh2'
         },
+        events: {
+            'onReady': onPlayerReady,
+        }
+
     });
 }
 
-// function onPlayerReady(event) {
-//     event.target.playVideo()
-// }
+function onPlayerReady(event) {
+    event.target.setVolume(20);
+}
 
 // var done = false;
 // function onPlayerStateChange(event) {
@@ -67,22 +71,29 @@ function updateTime() {
 
 }
 
-document.getElementById("previous").addEventListener("click", function() {
+function updateVolume() {
+    // player.setVolume(value)
+    console.log('Volume: ' + player.getVolume())
+}
+
+document.getElementById("previous").addEventListener("click", function () {
     player.previousVideo()
 });
 
-document.getElementById("play").addEventListener("click", function() {
+document.getElementById("play").addEventListener("click", function () {
     player.playVideo()
+    updateVolume()
     document.getElementById('pause').style.display = "flex"
     document.getElementById('play').style.display = "none"
 });
 
-document.getElementById("pause").addEventListener("click", function() {
+document.getElementById("pause").addEventListener("click", function () {
     player.pauseVideo()
     document.getElementById('pause').style.display = "none"
     document.getElementById('play').style.display = "flex"
 
 });
-document.getElementById("next").addEventListener("click", function() {
+document.getElementById("next").addEventListener("click", function () {
     player.nextVideo()
 });
+
